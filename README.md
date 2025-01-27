@@ -1,5 +1,21 @@
 # Automated_investment_report_generation_system
 
+## STEPS FOLLOWED : 
+1. Load and format mutual fund data into retrievable documents. (Each row is
+converted to a Document object by Langchain)
+2. Generate numerical vector embeddings for documents using a Hugging Face
+embedding model. (default model used)
+3. Load and configure Zephyr-7b-beta LLM with memory-efficient settings. (using
+4-bit quantisation for using less gpu memory)
+4. Define a structured prompt template for LLM input
+5. Retrieve the top 5 documents most relevant to the query. (by performing semantic
+similarity search between the document embeddings and query embedding to get
+the relevant documents and selecting top5)
+6. Combine retrieval and text generation for answers. ( use the top5 unique relevant
+documents content to form a context and send it as an input to
+Zephyr-7b-beta(text-generation) model to generate summary)
+7. Next is querying and response generation for recommendations
+
 ## DEMO WORKING :
 
 ## TEMPLATE : 
